@@ -31,10 +31,12 @@ $.ajax({
              error: function(error){
              }
          });
-        ```
+    
+```
 
 ###### promise的诞生
 es6提出了promise进行异步编程处理，而其链式的调用方法比之前的回调地狱的代码逻辑更容易维护。Promise对象的接收同步回调函数(执行器函数),执行器函数自带两个参数（resolve，reject）,执行器函数返回一个promise实例,下面就是一个鲜明的Promise对象例子:
+
 ```
 new Promise(
   // 执行器函数
@@ -45,7 +47,6 @@ new Promise(
             },1000)
         }).then((value)=>console.log(value))
 ```
-
 ###### promise 内部的状态
 描述：promise对象有三种状态，分别是pendding（初始化）、resolved（成功状态）和rejected(失败状态)。promise对象内部状态一旦改变就无法再回转。
 思考：
@@ -54,6 +55,7 @@ new Promise(
 
 1) resolve : pendding => resolved
 2) reject : pendding => rejected
+
 ```
 let promise1 = new Promise((resolve,reject)=>{
              setTimeout(()=>{
@@ -66,11 +68,13 @@ let promise1 = new Promise((resolve,reject)=>{
         reason => console.log('失败回调', reason)
         )
 ```
+
 那么除了以上的方法是否还有其他的方法可以更改Promise对象内部的状态呢？
 如果执行器函数内部抛出异常，是否可以更改状态呢？
 答案是当然可以（pendding=>rejected）
 
 2. 那么在执行器里面抛出异常可以更改对象的状态，那么在异步回调内抛出异常是否可以向上冒泡进而更改状态呢？
+
 ```
 let promise1 = new Promise((resolve,reject)=>{
             //throw new Error('执行器内部报错')
@@ -83,9 +87,9 @@ let promise1 = new Promise((resolve,reject)=>{
         reason => console.log('失败回调', reason)
         )
 ```
+
 1) setTimeout 抛出异常并不能被.then捕获到,所以就会报错。
 2) 执行器函数内抛出异常，reject可以改变状态，而失败的value就是抛出的异常
-
 ###### promise 的链式调用
 思考：
 1. promise.prototype.then()返回新的promise的结果状态由什么决定？
@@ -141,11 +145,11 @@ let promise1 = new Promise((resolve,reject)=>{
             return new Promise(()=>{})
         })
         .then(value => console.log(value,'真的终止了嘛？？？'))
-    ```
+```
 通过上面的代码运行结果可知=>返回一个状态为pendding的promise即可
-
 ###### promise的属性
 描述：promise的属性分为.then、.catch(.then的语法糖)和.finally
+
 ```
 new Promise((resolve, reject)=>{
             setTimeout(()=>{
@@ -182,7 +186,7 @@ let promise2 = new Promise((resolve,reject)=>{
         value=>console.log(value,'回调函数3'), 
         reason => console.log(reason,'回调函数3')
         )
-    ```
+```
 执行之后可以得知，由于promise执行器会将每一个回调的状态对象存储在数组中，故而回调函数会依次调用，顺序输出。
 
 2. 改变promise对象状态与指定回调函数先后顺序是什么呢？
@@ -195,7 +199,7 @@ let promise2 = new Promise((resolve,reject)=>{
         setTimeout(()=>{
             promise3.then((value)=>console.log(value)) // 指定回调函数
         },6000)
-    ```
+```
 都有可能
 
 1) 可以先改变状态，再指定回调函数（非常规）
@@ -247,7 +251,7 @@ let promise8 = new Promise((resolve, reject)=>{
         // reason => console.log('第二次失败的回调',reason)
         // )
         .catch(reason => console.log('捕获的错误',reason))
-    ```
+```
 如果第一次回调的.then返回了错误信息，并且没有写第二次回调.then，错误就无法被捕获。
 
 ###### promise的相关api:
