@@ -20,7 +20,7 @@ whistle的汉译是“哨子”的意思，可能从简单的汉译我们并不�
 
    1. chrome需要安装SwitchyOmega插件，直接chrome商店搜索安装即可；配置参数如下：
 
-      <img src="/Users/mac/Library/Application Support/typora-user-images/截屏2022-07-21 下午5.23.50.png" alt="截屏2022-07-21 下午5.23.50" style="zoom:80%;" />
+      <img src="image/SwitchyOmega配置" alt="" style="zoom:80%;" />
 
    2.  ITtem启动whistle -- w2 start
 
@@ -28,7 +28,7 @@ whistle的汉译是“哨子”的意思，可能从简单的汉译我们并不�
 
       点击Download RootCA 下载CA证书，钥匙串要去进行CA证书认证
 
-      <img src="image/截屏2022-07-21 下午5.29.43.png" alt="截屏2022-07-21 下午5.29.43" style="zoom:80%;" />
+      <img src="image/DownloadCA.png.png" alt="" style="zoom:80%;" />
 
    4. IOS手机微信扫码下载证书，证书保存到文件，在文件里点击安装；然后设置 => 通用 => 关于本机 => 证书信任设置
 
@@ -38,11 +38,11 @@ whistle的汉译是“哨子”的意思，可能从简单的汉译我们并不�
 
    1. 找到自己想要代理mock数据的接口
 
-      <img src="image/截屏2022-07-21 下午5.13.03.png" alt="截屏2022-07-21 下午5.13.03" style="zoom:80%;" />
+      <img src="image/net.png" alt="" style="zoom:80%;" />
 
       2. 在http://127.0.0.1:8899/#values网址里点击create按钮新建一个values；里面放置接口Reaponse的内容，可自行修改
 
-         <img src="image/截屏2022-07-21 下午5.10.18.png" alt="截屏2022-07-21 下午5.10.18" style="zoom:80%;" />
+         <img src="image/value.png" alt="" style="zoom:80%;" />
 
    3. 在http://127.0.0.1:8899/#rules 配置代理规则和跨域规则
 
@@ -50,6 +50,6 @@ whistle的汉译是“哨子”的意思，可能从简单的汉译我们并不�
 
       re sCors:// * 配置跨域
 
-<img src="image/截屏2022-07-21 下午5.11.04.png" alt="截屏2022-07-21 下午5.11.04" style="zoom:80%;" />
+<img src="image/rules.png" alt="" style="zoom:80%;" />
 
-​			<img src="image/截屏2022-07-21 下午5.13.03.png" alt="截屏2022-07-21 下午5.13.03" style="zoom:80%;" />
+​			<img src="image/net.png" alt="" style="zoom:80%;" />
